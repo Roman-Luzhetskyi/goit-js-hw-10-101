@@ -5,11 +5,11 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const inputDateTimeEl = document.querySelector('#datetime-picker');
-const startBtn = document.querySelector('button[data-start]');
-const timerDays = document.querySelector('span[data-days]');
-const timerHours = document.querySelector('span[data-hours]');
-const timerMinutes = document.querySelector('span[data-minutes]');
-const timerSeconds = document.querySelector('span[data-seconds]');
+const startBtn = document.querySelector('.js-batton-start');
+const timerDays = document.querySelector('.js-data-days');
+const timerHours = document.querySelector('.js-data-hours');
+const timerMinutes = document.querySelector('.js-data-minutes');
+const timerSeconds = document.querySelector('.js-data-seconds');
 
 startBtn.addEventListener('click', onClickStartTimer);
 
@@ -22,14 +22,11 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] <= Date.now()) {
-      disableBtn();
-      addErrorMessage();
-    } else {
-      enableBtn();
-      removeErrorMessage();
-      userSelectedDate = selectedDates[0];
-    }
+    selectedDates[0] <= Date.now()
+      ? (disableBtn(), addErrorMessage())
+      : (enableBtn(),
+        removeErrorMessage(),
+        (userSelectedDate = selectedDates[0]));
   },
 };
 
