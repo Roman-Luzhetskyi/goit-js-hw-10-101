@@ -11,6 +11,7 @@ const timerHours = document.querySelector('.js-data-hours');
 const timerMinutes = document.querySelector('.js-data-minutes');
 const timerSeconds = document.querySelector('.js-data-seconds');
 
+startBtn.setAttribute('disabled', '');
 startBtn.addEventListener('click', onClickStartTimer);
 
 let userSelectedDate = '';
